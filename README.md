@@ -84,12 +84,12 @@ ansible all -m ping -i hosts.ini
 ```
 #### Caution donot run mainplaybook.yml if the connection to all hosts is not passed. Instead run playbooks individually.
 
-#### To execute all playbooks at once, run the following command:
+#### 1. To execute all playbooks at once, run the following command:
 ```sh
  ansible-playbook -i hosts.ini mainplaybook.yml 
 ```
 
-#### To execute playbooks individually, run the following command:
+#### 2. To execute playbooks individually, run the following command:
 
  #####   i. To install Keepalived and HAProxy, run the following command:
 ```sh
