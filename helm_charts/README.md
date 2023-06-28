@@ -26,3 +26,5 @@ kubectl get sc
 
 You should see output indicating that the resources were created and are in a Bound state.
 Now, you can use the PersistentVolumeClaim in your Kubernetes deployments or pods by referencing its name in the volumes section of your YAML manifest.
+
+Note that the nfs-encrypted provisioner relies on the dm-crypt kernel module to provide encryption. You should ensure that this module is loaded on all nodes in your kubernetes cluster before using the nfs-encrypted provisioner.
