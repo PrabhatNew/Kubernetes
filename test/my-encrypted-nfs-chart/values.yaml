@@ -1,0 +1,27 @@
+nfs:
+  server: <NFS_SERVER_HOSTNAME>
+  path: <NFS_SERVER_SHARE_PATH>
+
+persistentVolume:
+  name: nfs-encrypted-pv
+  storageClassName: nfs-encrypted
+  capacity: 5Gi
+  accessModes:
+    - ReadWriteMany
+
+persistentVolumeClaim:
+  name: nfs-encrypted-pvc
+  storageClassName: nfs-encrypted
+  accessModes:
+    - ReadWriteMany
+  storageSize: 1Gi
+
+storageClass:
+  name: nfs-encrypted
+  provisioner: nfs-encrypted
+  parameters:
+    nfsServerHostname: <NFS_SERVER_HOSTNAME>
+    nfsServerSharePath: <NFS_SERVER_SHARE_PATH>
+    encryption: "on"
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
