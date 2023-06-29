@@ -17,7 +17,7 @@ persistentVolumeClaim:
   storageSize: 1Gi
 
 storageClass:
-  name: nfs-encrypted
+  name: nfs-client
   provisioner: nfs-encrypted
   parameters:
     nfsServerHostname: <NFS_SERVER_HOSTNAME>
