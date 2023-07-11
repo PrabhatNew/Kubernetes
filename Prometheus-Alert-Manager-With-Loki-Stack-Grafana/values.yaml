@@ -1,0 +1,23 @@
+loki:
+  enabled: true
+  persistence:
+     enabled: true
+     storageClassName: managed-nfs-storage
+     size: 1Gi
+  config:
+     table_manager:
+       retention_deletes_enabled: true
+       retention_period: 720h
+
+promtail:
+  enabled: true
+
+grafana:
+  enabled: true
+  sidecar:
+    datasources:
+      enabled: true
+  image:
+    tag: 9.5.2
+
+  
