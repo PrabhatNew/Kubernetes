@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      volumes:
+       - name: nfs-pv
+         persistentVolumeClaim:
+          claimName: downzones
+      containers:
+      - name: my-container
+        image: my-image
+        volumeMounts:
+        - name: nfs-volume
+          mountPath: /dev
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pv-pod 
+spec: 
+ containers:
+   - name: nginx
+     image: nginx
+     ports:
+       - name: http
+         containerPort: 80
+     volumeMounts:
+       - name: pv-storage
+         mountPath: "/usr/share/nginx/html"
+  volumes:
+    - name: pv-storage
+      persistentVolumeClaim:
+        claimName: local-pv-claim 

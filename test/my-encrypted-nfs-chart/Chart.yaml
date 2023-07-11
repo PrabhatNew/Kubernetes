@@ -1,0 +1,4 @@
+apiVersion: v2
+name: my-encrypted-nfs-chart
+description: A Helm chart for creating a PersistentVolume and PersistentVolumeClaim for encrypted NFS storage
+version: 0.1.0

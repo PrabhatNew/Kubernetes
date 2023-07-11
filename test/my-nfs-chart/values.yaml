@@ -1,0 +1,25 @@
+nfs:
+  server: 172.31.12.7
+  path: /mnt/nfs_share
+
+persistentVolume:
+  name: nfs-pv
+  storageClassName: nfs-storageclass
+  capacity: 5Gi
+  accessModes:
+    - ReadWriteMany
+
+persistentVolumeClaim:
+  name: nfs-pvc
+  storageClassName: nfs-storageclass
+  accessModes:
+    - ReadWriteMany
+  storageSize: 1Gi
+
+storageClass:
+  name: nfs-storageclass
+  provisioner: nfs
+  parameters:
+    archiveOnDelete: "false"
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
