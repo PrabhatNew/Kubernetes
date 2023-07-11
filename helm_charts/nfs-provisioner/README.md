@@ -28,7 +28,7 @@ cd Kubernetes/helm_charts/nfs-provisioner
 3. Install the chart using the `helm install` command:
 
 ```bash
-helm install <release-name> . --set server=<NFS Server IP>,path=/srv/nfs/kubedata
+helm install <release-name> . --set server=<NFS Server IP>,path=<NFS PATH >
 ```
 
 Replace `<release-name>` with a name for your release, `<NFS Server IP>` with the IP address of your NFS server and `path` with the path of volume mount.
@@ -40,10 +40,10 @@ The following table lists the configurable parameters of the chart and their def
 | Parameter                  | Description                                       | Default                     |
 | --------------------------| ------------------------------------------------- | ---------------------------|
 | `storageClass.name`        | Name of the storage class to create               | `managed-nfs-storage`       |
-| `storageClass.provisioner` | Name of the NFS provisioner to use                 | `example.com/nfs`           |
+| `storageClass.provisioner` | Name of the NFS provisioner to use                 | `gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner:v4.0.1`           |
 | `storageClass.archiveOnDelete` | Whether to archive on delete or not           | `false`                 |
 | `deployment.image`        | Docker image for the NFS client provisioner       | `quay.io/external_storage/nfs-client-provisioner:latest` |
-| `deployment.provisionerName` | Name of the NFS provisioner to use             | `example.com/nfs`       |
+| `deployment.provisionerName` | Name of the NFS provisioner to use             | `k8s-sigs.io/nfs-subdir-external-provisioner`       |
 | `server`                   | IP address of the NFS server                      | `""`                        |
 | `path`                     | Path to the NFS share on the server                | `""`                        |
 
