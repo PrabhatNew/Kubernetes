@@ -5,9 +5,7 @@ kubectl create ns monitoring
 
 sudo git clone https://github.com/PrabhatNew/Kubernetes.git
 
-cd Kubernetes
-
-cd Prometheus-Alert-Manager-With-Loki-Stack-Grafana/
+cd Kubernetes/Prometheus-Alert-Manager-With-Loki-Stack-Grafana/
 
 kubectl apply -f Prometheus-Alert-Manager\ /
 
