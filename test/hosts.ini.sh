@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Call install_ansible.sh script to install Ansible
+./install_ansible.sh
+
 # Get the user input for the number of master hosts
 echo -n "Enter the number of master hosts: "
 read num_master_hosts
@@ -77,4 +80,4 @@ done
 
 # Move the hosts.ini file to the ansible directory
 echo "The hosts.ini file has been created inside ansible folder."
-mv hosts.ini ../ansible/
+cp hosts.ini ../ansible/

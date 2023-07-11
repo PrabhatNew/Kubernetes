@@ -1,0 +1,1 @@
+Note that the nfs-encrypted provisioner relies on the dm-crypt kernel module to provide encryption. You should ensure that this module is loaded on all nodes in your kubernetes cluster before using the nfs-encrypted provisioner.
