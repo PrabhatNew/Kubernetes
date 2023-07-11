@@ -1,9 +1,9 @@
 storageClass:
   name: managed-nfs-storage
-  provisioner: example.com/nfs
+  provisioner: ek8s-sigs.io/nfs-subdir-external-provisioner
   archiveOnDelete: "false"
 deployment:
-  image: quay.io/external_storage/nfs-client-provisioner:latest
-  provisionerName: example.com/nfs
+  image: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner:v4.0.1
+  provisionerName: k8s-sigs.io/nfs-subdir-external-provisioner
 server: <<NFS Server IP>>
 path: /srv/nfs/kubedata

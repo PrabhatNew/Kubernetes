@@ -1,15 +1,27 @@
 version: '2.2'
 services:
-  rancher:
+  vianet-rancher:
     image: rancher/rancher:latest
-    container_name: rancher
+    container_name: vianet-rancher
     volumes:
-      - mnt/nfs_clientshare/rancher-data:/var/lib/rancher
+      - /etc/ssl/certs/STAR.vianet.com.np.crt:/etc/rancher/ssl/cert.pem
+      - /etc/ssl/certs/STAR.vianet.com.np.key:/etc/rancher/ssl/key.pem
+      - type: volume
+        source: rancher-volume
+        target: /var/lib/rancher
+    environment:
+      - CATTLE_BOOTSTRAP_PASSWORD=1234567890
     ports:
       - 80:80
       - 443:443
+    restart: unless-stopped
     privileged: true
+    command: --no-cacerts
 
 volumes:
-  rancher-data:
+  rancher-volume:
     driver: local
+    driver_opts:
+      type: nfs
+      o: addr=<nfs-server-ip>,nolock,soft,rw
+      device: ":/<nfs-share-path>/rancher-volume"
