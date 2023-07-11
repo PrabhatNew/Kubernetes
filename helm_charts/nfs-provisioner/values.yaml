@@ -1,9 +1,9 @@
 storageClass:
   name: managed-nfs-storage
-  provisioner: ek8s-sigs.io/nfs-subdir-external-provisioner
+  provisioner: k8s-sigs.io/nfs-subdir-external-provisioner
   archiveOnDelete: "false"
 deployment:
   image: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner:v4.0.1
   provisionerName: k8s-sigs.io/nfs-subdir-external-provisioner
 server: <<NFS Server IP>>
-path: /srv/nfs/kubedata
+path: <<NFS PATH >>
