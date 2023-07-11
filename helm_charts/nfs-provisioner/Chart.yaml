@@ -1,0 +1,4 @@
+apiVersion: v2
+name: nfs-provisioner
+description: A Helm chart for deploying an NFS client provisioner
+version: 0.1.0

@@ -1,0 +1,9 @@
+storageClass:
+  name: managed-nfs-storage
+  provisioner: example.com/nfs
+  archiveOnDelete: "false"
+deployment:
+  image: quay.io/external_storage/nfs-client-provisioner:latest
+  provisionerName: example.com/nfs
+server: <<NFS Server IP>>
+path: /srv/nfs/kubedata
