@@ -18,7 +18,7 @@ To use this script, follow these steps:
 
 1. Copy the script into a new file (e.g., `deploy-argocd.sh`) on your local machine.
 
-2. Update the `INSTALL_YAML` and `INGRESS_YAML` variables in the script to match the names of your `install.yaml` and `ingress.yaml` files.
+2. Update the `INGRESS_YAML` variables in the script to match the name of your `ingress.yaml` file.
 
 3. Make the script executable by running the following command:
 

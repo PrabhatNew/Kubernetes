@@ -10,12 +10,22 @@ echo "Listing all namespaces..."
 kubectl get ns
 echo "Namespace list displayed."
 
+# Clone Argo CD repo..
+echo "Cloning the Argo CD repo..."
+git clone https://github.com/argoproj/argo-cd.git
+cd /argo-cd/manifests/ha
+echo "Deploying the Argo cd on HA mode..."
+kubectl apply -f install.yaml -n argocd
+
+
+
+
 # Deploy the argo in HA mode
-echo "Deploying the argo cd on HA mode..."
-INSTALL_YAML="install.yaml"
+#echo "Deploying the argo cd on HA mode..."
+#INSTALL_YAML="install.yaml"
 # Apply the deployment and service YAML files using kubectl
-kubectl apply -f $INSTALL_YAML -n argocd
-echo "Argo on HA mode Deployed."
+#kubectl apply -f $INSTALL_YAML -n argocd
+#echo "Argo on HA mode Deployed."
 
 # Get the service information for Argo CD server
 echo "Getting the service information for Argo CD server..."
