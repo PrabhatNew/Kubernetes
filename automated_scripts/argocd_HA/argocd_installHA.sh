@@ -36,3 +36,9 @@ echo "Updated service information displayed."
 echo "Getting the initial admin password for Argo CD..."
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 echo "Initial admin password retrieved successfully."
+
+# Deploy the ingress for Argo CD
+echo "Deploying the ingress for Argo CD..."
+INGRESS_YAML="ingress.yaml"
+kubectl apply -f $INGRESS_YAML -n argocd
+echo "Ingress for Argo CD deployed"
