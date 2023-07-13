@@ -15,14 +15,14 @@ To use this script, follow the steps below:
 
 1. Clone this repository using the following command:
 
-   `````
+   ````
    git clone https://github.com/PrabhatNew/Kubernetes.git
-   ```
+   ````
 
 2. Change directory to the cloned repository:
 
    ````
-   cd Kubernetes/automated_script/argocd
+   cd Kubernetes/automated_scripts/argocd
    ````
 
 3. Make the script executable:
