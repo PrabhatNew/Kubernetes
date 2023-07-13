@@ -16,20 +16,29 @@ Before running this script, you must have the following:
 
 To use this script, follow these steps:
 
-1. Copy the script into a new file (e.g., `deploy-argocd.sh`) on your local machine.
-
-2. Update the `INGRESS_YAML` variables in the script to match the name of your `ingress.yaml` file.
-
-3. Make the script executable by running the following command:
-
-   ``````
-   chmod +x deploy-argocd.sh
-   
-
-4. Run the script by running the following command:
+1. Clone this repository using the following command:
 
    ````
-   ./deploy-argocd.sh
+   git clone https://github.com/PrabhatNew/Kubernetes.git
+   ````
+
+2. Change directory to the cloned repository:
+
+   ````
+   cd Kubernetes/automated_scripts/argocd_HA
+
+3. Update the `INGRESS_YAML` variables in the script to match the name of your `ingress.yaml` file.
+
+4. Make the script executable by running the following command:
+
+   ``````
+   chmod +x argocd_installHA.sh
+   
+
+5. Run the script by running the following command:
+
+   ````
+   ./argocd_installHA.sh
    `````
 
    The script will create the `argocd` namespace, deploy the Argo CD server and its dependencies, configure the Argo CD server service to be of type NodePort, and deploy an ingress for Argo CD. It will also output the initial admin password for Argo CD.
