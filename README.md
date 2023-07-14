@@ -29,10 +29,10 @@ This repository contains Ansible playbooks and Bash scripts to set up a Kubernet
 3. Make the Bash scripts executable using the following command:
    ````sh
    sudo chmod +x -R bash_files
-   
+   ````
    ````sh
    cd bash_files
-   
+   ````
 
 4. Run the `on_all_nodes.sh` script on all the nodes in your cluster to gather information about each individual node:
    ````sh
